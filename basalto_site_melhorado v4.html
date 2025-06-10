@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basalto — Móveis com História</title>
+  <meta name="description" content="Basalto restaura móveis usados com design sustentável e vende online. Móveis com história e estilo para sua casa.">
+  <meta name="author" content="Seu Nome">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f0ec;
+      color: #3a3a3a;
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    header {
+      background: #2b2b2b;
+      border-bottom: 1px solid #444;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #e4c590;
+      font-family: 'Georgia', serif;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #e4c590;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #ddd5c6;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2b2b2b;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero button {
+      background: #2b2b2b;
+      color: #e4c590;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .sobre, .catalogo, .features, .contact {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .sobre p {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .catalogo {
+      background: #f7f6f2;
+    }
+
+    .produtos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .produto {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      width: 280px;
+    }
+
+    .produto img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .produto h4 {
+      margin: 1rem 0 0.5rem;
+    }
+
+    .produto button {
+      margin-top: 1rem;
+      background: #2b2b2b;
+      color: #e4c590;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      background-color: #f2f0ec;
+      padding: 3rem 2rem;
+    }
+
+    .feature {
+      max-width: 300px;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .contact form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      background: #2b2b2b;
+      color: #e4c590;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #2b2b2b;
+      padding: 2rem;
+      text-align: center;
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: #e4c590;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2b2b2b;
+      color: #e4c590;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 1001;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0 0 0;
+      }
+      .produtos {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Basalto</h1>
+    <nav>
+      <a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Móveis com História, Reformados com Alma</h2>
+    <p>Resgatamos, restauramos e reinventamos móveis usados para dar a eles uma nova vida em lares modernos e conscientes.</p>
+    <button onclick="document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });">Entre em Contato</button>
+  </section>
+
+  <section class="sobre" id="sobre" data-aos="fade-up">
+    <h2>Sobre a Basalto</h2>
+    <p>A Basalto nasceu da paixão por design, sustentabilidade e histórias esquecidas. Damos uma nova vida a móveis usados, respeitando sua essência e adicionando um toque contemporâneo.</p>
+  </section>
+
+  <section class="catalogo" id="catalogo" data-aos="fade-up">
+    <h2>Nosso Catálogo</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/280x180" alt="Cadeira vintage restaurada com tecido ecológico">
+        <h4>Cadeira Vintage</h4>
+        <p>Peça única restaurada com tecido ecológico.</p>
+        <button>Ver Detalhes</button>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/280x180" alt="Criado-mudo retrô restaurado com madeira de demolição">
+        <h4>Criado-mudo Retrô</h4>
+        <p>Madeira de demolição com acabamento sustentável.</p>
+        <button>Ver Detalhes</button>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/280x180" alt="Mesa de centro rústica feita com madeira reaproveitada">
+        <h4>Mesa de Centro</h4>
+        <p>Ideal para espaços modernos com alma rústica.</p>
+        <button>Ver Detalhes</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" data-aos="fade-up">
+    <div class="feature">
+      <h3>Garimpo Consciente</h3>
+      <p>Selecionamos móveis usados com potencial e história para restaurar com cuidado.</p>
+    </div>
+    <div class="feature">
+      <h3>Design Sustentável</h3>
+      <p>Cada peça é repensada para unir estética, funcionalidade e respeito ao meio ambiente.</p>
+    </div>
+    <div class="feature">
+      <h3>Venda Online</h3>
+      <p>Compre móveis reformados de forma simples e segura direto pelo nosso site.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contato" data-aos="fade-up">
+    <h2>Fale com a gente</h2>
+    <form action="https://formsubmit.co/seuemail@exemplo.com" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <a href="#" title="Instagram">📷</a>
+      <a href="#" title="WhatsApp">💬</a>
+      <a href="#" title="Facebook">📘</a>
+    </div>
+    <p>&copy; 2025 Basalto. Todos os direitos reservados.</p>
+  </footer>
+
+  <div class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" title="Voltar ao topo">↑</div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
