@@ -16,6 +16,7 @@
       color: #3a3a3a;
       line-height: 1.6;
       padding-top: 80px;
+      transition: padding-top 0.3s ease;
     }
 
     header {
@@ -29,8 +30,30 @@
       top: 0;
       width: 100%;
       z-index: 1000;
+      transition: transform 0.3s ease;
     }
 
+    /* Adicionei esta classe para ocultar a navbar */
+    header.hidden {
+      transform: translateY(-100%);
+    }
+
+    /* Adicionei este botão para controlar a visibilidade */
+    .toggle-nav {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #e4c590;
+      color: #2b2b2b;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1001;
+      font-weight: bold;
+    }
+
+    /* Restante do seu CSS permanece o mesmo */
     header h1 {
       margin: 0;
       font-size: 1.5rem;
@@ -269,11 +292,22 @@
         flex-direction: column;
         align-items: center;
       }
+      
+      /* Ajuste para mobile do botão de toggle */
+      .toggle-nav {
+        top: 5px;
+        right: 5px;
+        padding: 3px 6px;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
+  <!-- Adicionei este botão para controlar a navbar -->
+  <button class="toggle-nav" id="toggleNav">Ocultar Navbar</button>
+  
+  <header id="mainHeader">
     <h1>Basalto</h1>
     <nav>
       <a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Início</a>
@@ -357,7 +391,6 @@
     <p>📞 (31) 98969-1045</p>
     <p>✉️ Sac@basalto.com</p>
     <p>⏰ Seg. a Sex., das 9h às 18h</p>
-
   </div>
   </footer>
 
@@ -366,6 +399,50 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+    
+    // Adicionei este script para controlar a navbar
+    const toggleNavButton = document.getElementById('toggleNav');
+    const header = document.getElementById('mainHeader');
+    
+    toggleNavButton.addEventListener('click', function() {
+      header.classList.toggle('hidden');
+      
+      // Ajusta o padding do body para compensar a navbar oculta
+      if (header.classList.contains('hidden')) {
+        document.body.style.paddingTop = '0';
+        toggleNavButton.textContent = 'Mostrar Navbar';
+      } else {
+        document.body.style.paddingTop = '80px';
+        toggleNavButton.textContent = 'Ocultar Navbar';
+      }
+    });
+    
+    // Opcional: Ocultar navbar ao rolar para baixo, mostrar ao rolar para cima
+    let lastScroll = 0;
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll <= 0) {
+        header.classList.remove('hidden');
+        document.body.style.paddingTop = '80px';
+        toggleNavButton.textContent = 'Ocultar Navbar';
+        return;
+      }
+      
+      if (currentScroll > lastScroll && !header.classList.contains('hidden')) {
+        // Rolando para baixo
+        header.classList.add('hidden');
+        document.body.style.paddingTop = '0';
+        toggleNavButton.textContent = 'Mostrar Navbar';
+      } else if (currentScroll < lastScroll && header.classList.contains('hidden')) {
+        // Rolando para cima
+        header.classList.remove('hidden');
+        document.body.style.paddingTop = '80px';
+        toggleNavButton.textContent = 'Ocultar Navbar';
+      }
+      
+      lastScroll = currentScroll;
+    });
   </script>
 </body>
 </html>
