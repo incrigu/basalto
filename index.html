@@ -7,10 +7,11 @@
   <meta name="description" content="Basalto restaura móveis usados com design sustentável e vende online. Móveis com história e estilo para sua casa.">
   <meta name="author" content="Seu Nome">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: #f2f0ec;
       color: #3a3a3a;
       line-height: 1.6;
@@ -34,7 +35,7 @@
       margin: 0;
       font-size: 1.5rem;
       color: #e4c590;
-      font-family: 'Georgia', serif;
+      font-family: 'Playfair Display', serif;
     }
 
     nav a {
@@ -49,15 +50,31 @@
     }
 
     .hero {
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
       text-align: center;
-      background: #ddd5c6;
+      background: url('https://images.unsplash.com/photo-1600585152220-90363fe7e115') no-repeat center/cover;
+      color: white;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.45);
+      z-index: 0;
+    }
+
+    .hero * {
+      position: relative;
+      z-index: 1;
     }
 
     .hero h2 {
-      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
       margin-bottom: 1rem;
-      color: #2b2b2b;
     }
 
     .hero p {
@@ -74,11 +91,21 @@
       font-size: 1rem;
       border-radius: 6px;
       cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .hero button:hover {
+      opacity: 0.85;
+      transform: scale(1.02);
     }
 
     .sobre, .catalogo, .features, .contact {
       padding: 3rem 2rem;
       text-align: center;
+    }
+
+    .sobre h2, .catalogo h2, .contact h2 {
+      font-family: 'Playfair Display', serif;
     }
 
     .sobre p {
@@ -88,6 +115,13 @@
 
     .catalogo {
       background: #f7f6f2;
+    }
+
+    .catalogo h2 + div {
+      width: 60px;
+      height: 4px;
+      background: #e4c590;
+      margin: 0.5rem auto 2rem;
     }
 
     .produtos {
@@ -103,6 +137,12 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .produto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     }
 
     .produto img {
@@ -122,6 +162,12 @@
       padding: 0.5rem 1rem;
       border-radius: 5px;
       cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .produto button:hover {
+      opacity: 0.85;
+      transform: scale(1.02);
     }
 
     .features {
@@ -139,6 +185,10 @@
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .feature h3 {
+      font-family: 'Playfair Display', serif;
     }
 
     .contact form {
@@ -164,21 +214,32 @@
       font-size: 1rem;
       border-radius: 6px;
       cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .contact button:hover {
+      opacity: 0.85;
+      transform: scale(1.02);
     }
 
     footer {
-      background: #2b2b2b;
-      padding: 2rem;
+      background: #1a1a1a;
+      padding: 3rem 2rem;
       text-align: center;
-      color: #bbb;
+      color: #aaa;
       font-size: 0.9rem;
     }
 
     .social-icons a {
-      margin: 0 0.5rem;
+      margin: 0 1rem;
       color: #e4c590;
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff8e1;
     }
 
     .back-to-top {
@@ -235,24 +296,25 @@
 
   <section class="catalogo" id="catalogo" data-aos="fade-up">
     <h2>Nosso Catálogo</h2>
+    <div></div>
     <div class="produtos">
       <div class="produto">
         <img src="https://via.placeholder.com/280x180" alt="Cadeira vintage restaurada com tecido ecológico">
         <h4>Cadeira Vintage</h4>
         <p>Peça única restaurada com tecido.</p>
-        <button>Ver Detalhes</button>
+        <button>🔍 Ver Detalhes</button>
       </div>
       <div class="produto">
-        <img src="https://via.placeholder.com/280x180" alt="Criado-mudo retrô restaurado com madeira de demolição">
-        <h4>estante capsulas</h4>
-        <p>ideal para espaços modernos com alma rústica.</p>
-        <button>Ver Detalhes</button>
+        <img src="https://via.placeholder.com/280x180" alt="Estante restaurada com madeira de demolição">
+        <h4>Estante Cápsulas</h4>
+        <p>Ideal para espaços modernos com alma rústica.</p>
+        <button>🔍 Ver Detalhes</button>
       </div>
       <div class="produto">
-        <img src="https://via.placeholder.com/280x180" alt="Mesa de centro rústica feita com madeira reaproveitada">
+        <img src="https://via.placeholder.com/280x180" alt="Mesa de centro feita com madeira reaproveitada">
         <h4>Mesa de Centro</h4>
-        <p>pefeita para escritorios de todos os tamanhos.</p>
-        <button>Ver Detalhes</button>
+        <p>Perfeita para escritórios de todos os tamanhos.</p>
+        <button>🔍 Ver Detalhes</button>
       </div>
     </div>
   </section>
@@ -264,7 +326,7 @@
     </div>
     <div class="feature">
       <h3>Design Sustentável</h3>
-      <p>Cada peça é repensada para unir estética, funcionalidade e custo-beneficio.</p>
+      <p>Cada peça é repensada para unir estética, funcionalidade e custo-benefício.</p>
     </div>
     <div class="feature">
       <h3>Venda Online</h3>
@@ -299,3 +361,4 @@
   </script>
 </body>
 </html>
+
