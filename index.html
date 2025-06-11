@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -10,6 +9,40 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
+    .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.social-icons a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.social-icons img {
+  width: 32px; /* Tamanho padrão para desktop */
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+  .social-icons {
+    gap: 1rem;
+  }
+  
+  .social-icons img {
+    width: 28px;
+    height: 28px;
+  }
+}
+    
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -449,10 +482,16 @@
 
   <footer>
     <div class="social-icons">
-      <a href="https://www.instagram.com/" title="Instagram">📷</a>
-      <a href="https://wa.link/m472bt" title="WhatsApp">💬</a>
-      <a href="https://www.facebook.com/" title="Facebook">📘</a>
-    </div>
+  <a href="https://www.instagram.com/" title="Instagram">
+    <img src="instagram.png" alt="Instagram">
+  </a>
+  <a href="https://wa.link/m472bt" title="WhatsApp">
+    <img src="whatsapp.png" alt="WhatsApp">
+  </a>
+  <a href="https://www.facebook.com/" title="Facebook">
+    <img src="facebook.png" alt="Facebook">
+  </a>
+</div>
     <p>&copy; 2025 Basalto. Todos os direitos reservados.</p>
   
     <div class="sac-info">
