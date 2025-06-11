@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -64,11 +65,20 @@
       background: #e4c590;
       color: #2b2b2b;
       border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
+      padding: 8px 12px;
+      border-radius: 50%;
       cursor: pointer;
       z-index: 1001;
       font-weight: bold;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .toggle-nav:hover {
+      background: #2b2b2b;
+      color: #e4c590;
+      transform: scale(1.1);
     }
 
     nav a {
@@ -76,12 +86,29 @@
       text-decoration: none;
       color: #e4c590;
       font-weight: 500;
+      position: relative;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
 
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #e4c590;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Restante do seu CSS permanece igual */
     .hero {
       padding: 6rem 2rem;
       text-align: center;
@@ -286,6 +313,18 @@
       cursor: pointer;
       font-size: 1.2rem;
       z-index: 1001;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: scale(1.1);
     }
 
     @media (max-width: 768px) {
@@ -305,8 +344,8 @@
       .toggle-nav {
         top: 5px;
         right: 5px;
-        padding: 3px 6px;
-        font-size: 0.8rem;
+        padding: 6px 10px;
+        font-size: 1rem;
       }
       header h1 {
         font-size: 1.3rem;
@@ -318,7 +357,7 @@
   </style>
 </head>
 <body>
-  <button class="toggle-nav" id="toggleNav">Λ</button>
+  <button class="toggle-nav" id="toggleNav" aria-label="Alternar navegação">☰</button>
   
   <header id="mainHeader">
     <h1>
@@ -340,8 +379,20 @@
   </section>
 
   <section class="sobre" id="sobre" data-aos="fade-up">
-    <h2>Sobre a Basalto</h2>
-    <p>A Basalto nasceu da paixão por design, sustentabilidade e histórias esquecidas. Damos uma nova vida a móveis usados, respeitando sua essência e adicionando um toque contemporâneo.</p>
+   <h2>Sobre a Basalto</h2>
+  <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+    <p style="margin-bottom: 1.5rem;">
+      A Basalto nasceu da paixão por design, sustentabilidade e histórias esquecidas. Damos uma nova vida a móveis usados, respeitando sua essência e adicionando um toque contemporâneo.
+    </p>
+    
+    <p style="margin-bottom: 1.5rem;">
+      Criada por quatro amigos movidos por um ideal comum, a Basalto acredita que cada peça tem valor — mesmo após ser descartada. Nosso propósito é transformar o que foi deixado de lado em algo novamente útil, bonito e acessível, sem abrir mão da qualidade.
+    </p>
+    
+    <p>
+      Unimos técnicas artesanais com um olhar moderno, focando em soluções criativas e sustentáveis. Mais do que restaurar, buscamos ressignificar: cada móvel que passa pelas nossas mãos carrega uma nova chance de fazer parte da sua história.
+    </p>
+  </div>
   </section>
 
   <section class="catalogo" id="catalogo" data-aos="fade-up">
@@ -349,21 +400,21 @@
     <div></div>
     <div class="produtos">
       <div class="produto">
-        <img src="https://via.placeholder.com/280x180" alt="Cadeira vintage restaurada com tecido ecológico">
+        <img src="cadeira.jpg" alt="Cadeira vintage restaurada com tecido ecológico">
         <h4>Cadeira Vintage</h4>
-        <p>Peça única restaurada com tecido.</p>
-        <button>🔍 Ver Detalhes</button>
-      </div>
-      <div class="produto">
-        <img src="https://via.placeholder.com/280x180" alt="Estante restaurada com madeira de demolição">
-        <h4>Estante Cápsulas</h4>
         <p>Ideal para espaços modernos com alma rústica.</p>
         <button>🔍 Ver Detalhes</button>
       </div>
       <div class="produto">
-        <img src="https://via.placeholder.com/280x180" alt="Mesa de centro feita com madeira reaproveitada">
+        <img src="organizador.jpg" alt="Estante restaurada com madeira de demolição">
+        <h4>Estante Cápsulas</h4>
+        <p>peça unica restaurada a partir de material reciclado.</p>
+        <button>🔍 Ver Detalhes</button>
+      </div>
+      <div class="produto">
+        <img src="mesa.jpg" alt="Mesa de centro feita com madeira reaproveitada">
         <h4>Mesa de Centro</h4>
-        <p>Perfeita para escritórios de todos os tamanhos.</p>
+        <p>Perfeita para escritórios de todos os tamanhos e gostos.</p>
         <button>🔍 Ver Detalhes</button>
       </div>
     </div>
@@ -387,6 +438,8 @@
   <section class="contact" id="contato" data-aos="fade-up">
     <h2>Fale com a gente</h2>
     <form action="https://formsubmit.co/gustavo.ola123.sabino@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
       <input type="text" name="nome" placeholder="Seu nome" required>
       <input type="email" name="email" placeholder="Seu e-mail" required>
       <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
@@ -418,41 +471,64 @@
     
     const toggleNavButton = document.getElementById('toggleNav');
     const header = document.getElementById('mainHeader');
+    const backToTopButton = document.querySelector('.back-to-top');
     
-    toggleNavButton.addEventListener('click', function() {
-      header.classList.toggle('hidden');
+    // Função simplificada para alternar a navbar
+    function toggleNav() {
+      const isHidden = header.classList.contains('hidden');
       
-      if (header.classList.contains('hidden')) {
-        document.body.style.paddingTop = '0';
-        toggleNavButton.textContent = 'Mostrar Navbar';
-      } else {
+      if (isHidden) {
+        // Mostrar navbar
+        header.classList.remove('hidden');
         document.body.style.paddingTop = '80px';
-        toggleNavButton.textContent = 'Ocultar Navbar';
+        toggleNavButton.innerHTML = '×';
+        toggleNavButton.setAttribute('aria-expanded', 'true');
+      } else {
+        // Esconder navbar
+        header.classList.add('hidden');
+        document.body.style.paddingTop = '0';
+        toggleNavButton.innerHTML = '☰';
+        toggleNavButton.setAttribute('aria-expanded', 'false');
       }
-    });
+    }
     
-    let lastScroll = 0;
+    // Evento de clique no botão de toggle
+    toggleNavButton.addEventListener('click', toggleNav);
+
+    // Configuração dos links âncora
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Apenas para o botão "voltar ao topo" aparecer/desaparecer
     window.addEventListener('scroll', function() {
       const currentScroll = window.pageYOffset;
       
-      if (currentScroll <= 0) {
-        header.classList.remove('hidden');
-        document.body.style.paddingTop = '80px';
-        toggleNavButton.textContent = 'Ocultar Navbar';
-        return;
+      // Mostrar/ocultar botão "voltar ao topo"
+      if (currentScroll > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
       }
-      
-      if (currentScroll > lastScroll && !header.classList.contains('hidden')) {
-        header.classList.add('hidden');
-        document.body.style.paddingTop = '0';
-        toggleNavButton.textContent = 'Mostrar Navbar';
-      } else if (currentScroll < lastScroll && header.classList.contains('hidden')) {
-        header.classList.remove('hidden');
-        document.body.style.paddingTop = '80px';
-        toggleNavButton.textContent = 'Ocultar Navbar';
-      }
-      
-      lastScroll = currentScroll;
+    });
+
+    // Comportamento do botão "voltar ao topo"
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   </script>
 </body>
